@@ -22,20 +22,6 @@
 };
 
 / {
-        macros {
-            comma_space: comma_space {
-                compatible = "zmk,behavior-macro";
-                #binding-cells = <0>;
-                bindings = <&macro_tap &kp COMMA &kp SPACE>;
-            };
-
-            dot_space: dot_space {
-                compatible = "zmk,behavior-macro";
-                #binding-cells = <0>;
-                bindings = <&macro_tap &kp DOT &kp SPACE>;
-            };
-        };
-        
         keymap {
                 compatible = "zmk,keymap";
 
@@ -48,7 +34,7 @@
                         &kp LSHIFT &kp Z &kp X &kp C &kp V &kp B
                         &kp N &kp M &kp COMMA &kp DOT &kp FSLH &kp RBKT
                         &lt RED MINUS &lt YLW UNDERSCORE &lt GRN SPACE
-                        &lt GRN LC(BSPC) &lt YLW &comma_space &lt RED &dot_space
+                        &lt GRN ENT &lt YLW BSPC &lt RED LC(BSPC)
                     >;
                 };
 
