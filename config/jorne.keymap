@@ -25,11 +25,13 @@
         macros {
             comma_space: comma_space {
                 compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
                 bindings = <&macro_tap &kp COMMA &kp SPACE>;
             };
 
             dot_space: dot_space {
                 compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
                 bindings = <&macro_tap &kp DOT &kp SPACE>;
             };
         };
