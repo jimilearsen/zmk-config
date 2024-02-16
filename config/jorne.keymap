@@ -12,53 +12,106 @@
 #define GRN 1
 #define YLW 2
 #define RED 3
-#define PRL 4
-#define BLU 4
+#define ORC 4
+#define CYA 5
+
+&lt {
+	flavor: "balanced";
+	tapping-term-ms = <200>;
+}
 
 / {
+		macros {
+			comma_space: comma_space {
+				compatible = "zmk,behavior-macro";
+				bindinds = <&macro-tap &kp COMMA &kp SPACE>;
+			};
+
+			dot_space: dot_space {
+				compatible = "zmk,behavior-macro";
+				bindinds = <&macro-tap &kp DOT &kp SPACE>;
+			};
+		};
+		
         keymap {
                 compatible = "zmk,keymap";
 
                 default_layer {
-                        bindings = <
-   &kp LWIN &kp GRAVE &kp Q &kp W &kp E &kp R &kp T &kp Y         &kp U  &kp I     &kp O   &kp P    &kp LBKT &mt RWIN RBKT
-            &kp LCTRL &kp A &kp S &kp D &kp F &kp G &kp H         &kp J  &kp K     &kp L   &kp SEMI &mt RCTRL SQT
-            &kp LALT  &kp Z &kp X &kp C &kp V &kp B &kp N         &kp M  &kp COMMA &kp DOT &kp FSLH &mt RALT BSLH
-                         &lt RSE TAB  &lt LWR ESC &kp SPACE &lt LWR RET &mt RSHFT BSPC &lt RSE DEL
-                        >;
-                };
-                lower_layer {
-                        bindings = <
-   &trans &kp UNDER      &kp F1   &kp F2 &kp F3   &kp F4   &kp F5           &kp F6    &kp F7   &kp F8   &kp F9   &kp F10  &kp F11 &mt RGUI F12
-          &mt LCTRL PLUS &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT        &kp CARET &kp AMPS &kp STAR &kp LPAR &kp RPAR &mt RCTRL MINUS
-          &mt LALT EQUAL &kp N1   &kp N2 &kp N3   &kp N4   &kp N5           &kp N6    &kp N7   &kp N8   &kp N9   &kp N0   &trans
-                                              &lt ADJ TAB &trans &trans   &trans &trans &lt ADJ DEL
-                        >;
+					bindings = <
+						&kp ESCAPE &kp TAB &kp Q &kp W &kp E &kp R &kp T
+						&kp Y &kp U &kp I &kp O &kp P &kp LBKT &kp ENTER
+						&kp LCTRL &kp A &kp S &kp D &kp F &kp G
+						&kp H &kp J &kp K &kp L &kp SEMI &kp SQT
+						&kp LSHIFT &kp Z &kp X &kp C &kp V &kp B
+						&kp N &kp M &kp COMMA &kp DOT &kp FSLH &kp RBKT
+						&lt RED MINUS &lt YLW UNDERSCORE &lt GRN SPACE
+						&lt GRN LC(BSPC) &lt YLW &comma_space &lt RED &dot_space
+					>;
                 };
 
-                raise_layer {
-                        bindings = <
-   &trans &kp KP_NUM      &kp KP_SLASH    &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_MINUS        &kp C_VOL_UP &kp HOME &kp UP &kp PG_UP &kp SLCK &kp CAPS &trans
-          &mt LCTRL EQUAL &kp KP_MULTIPLY &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_PLUS         &kp C_MUTE   &kp LEFT &kp DOWN &kp RIGHT &kp INS  &mt RCTRL K_APP
-          &trans          &kp KP_N0       &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_DOT          &kp C_VOL_DN &kp END  &kp PSCRN &kp PG_DN &kp PAUSE_BREAK &trans
-                                                           &trans &trans &lt ADJ RET   &lt ADJ ESC &trans &trans
-                        >;
+                green_layer {
+					bindings = <
+						&kp GRAVE &kp TILDE &kp FSLH &kp N7 &kp N8 &kp N9 &kp MINUS
+						&kp PERCENT &kp CARET &kp AMPS &kp STAR &kp LBKT &kp RBKT &kp ENTER
+						&kp UNDERSCORE &kp STAR &kp N4 &kp N5 &kp N6 &kp PLUS
+						&kp EXCL &kp AT &kp HASH &kp DOLLAR &kp LBRC &kp RBRC
+						&kp COMMA &kp DOT &kp N1 &kp N2 &kp N3 &kp EQUAL
+						&kp LPAR &kp RPAR &kp LT &kp GT &kp BSLH &kp PIPE
+						&kp N0 &kp SPACE &trans
+						&trans &kp BSPC &kp LALT
+					>;
                 };
-                adjust_layer {
-                        bindings = <
-   &sys_reset &bootloader  &none        &none        &none        &none        &none              &none        &none        &none        &none        &none         &bootloader &sys_reset
-          &bt BT_CLR   &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4       &bt BT_SEL 4 &bt BT_SEL 3 &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0  &bt BT_CLR
-          &none        &none        &none        &none        &none        &none              &tog GAM        &none        &none        &none        &none         &none
-                                                                    &trans &none &trans   &trans &none &trans
-                        >;
+
+                yellow_layer {
+					bindings = <
+						&kp LG(TAB) &kp LA(TAB) &kp LG(N5) &kp LG(N4) &kp LG(N3) &kp LG(N2) &kp LG(N1)
+						&kp BSPC &kp LC(LEFT) &kp LC(DOWN) &kp LC(UP) &kp LC(RIGHT) &kp INS &kp ENTER
+						&kp LA(D) &kp LC(A) &kp LC(LS(TAB)) &kp LC(W) &kp LC(TAB) &kp LC(T)
+						&kp DEL &kp LEFT &kp DOWN &kp UP &kp RIGHT &kp LC(F)
+						&kp LSHIFT &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V) &kp LG(SPACE)
+						&kp LC(DEL) &kp HOME &kp PG_DN &kp PG_UP &kp END &kp LC(Y)
+						&kp LALT &trans &none
+						&none &trans &kp K_APP
+					>;
                 };
-                game_layer {
-                        bindings = <
-   &kp GRAVE &kp ESC  &kp Q &kp W &kp E &kp R &kp T        &kp Y &kp U &kp I &kp O &kp P &kp LBKT &tog GAM
-           &kp TAB &kp A &kp S &kp D &kp F &kp G        &kp H &kp J &kp K &kp L &kp SEMI &kp SQT
-           &kp LSHIFT  &kp Z &kp X &kp C &kp V &kp B        &kp N &kp M &kp COMMA &kp DOT &kp FSLH &kp BSLH
-                          &kp LALT &kp LCTRL &kp SPACE     &lt LWR RET &mt RSHFT BSPC &lt RSE DEL
-                        >;
+
+                red_layer {
+					bindings = <
+						&kp LC(LS(ESC) &kp LG(L) &kp RSHIFT &kp RALT &kp LGUI &kp LG(I) &none
+						&kp C_VOL_UP &kp F9 &kp F10 &kp F11 &kp F12 &kp KP_NUMLOCK &kp PAUSE_BREAK
+						&kp LCTRL &kp RCTRL &kp LG(X) &kp LG(E) &kp LG(D) &kp LANG2
+						&kp C_MUTE &kp F5 &kp F6 &kp F7 &kp F8 &kp CAPSLOCK
+						&kp LSHIFT &kp LALT &kp LG(PSCRN) &kp PSCRN &kp LG(R) &kp LANG1
+						&kp C_VOL_DN &kp F1 &kp F2 &kp F3 &kp F4 &kp SCROLLLOCK
+						&trans &tog ORC &mo BLU
+						&none &none &trans
+					>;
+                };
+
+                orchid_layer {
+					bindings = <
+						&kp GRAVE &kp ESC &kp Q &kp W &kp E &kp R &kp T
+						&kp Y &kp U &kp I &kp O &kp P &kp LBRT &tog ORC
+						&kp TAB &kp A &kp S &kp D &kp F &kp G
+						&kp H &kp J &kp K &kp L &kp SEMI &kp SQT
+						&kp LSHIFT &kp Z &kp X &kp C &kp V &kp B
+						&kp N &kp M &kp COMMA &kp DOT &dp FSLH &kp RBKT
+						&kp LALT &kp LCTRL &kp SPACE
+						&kp ENTER &kp BSPC &kp DEL
+					>;
+                };
+
+                cyan_layer {
+					bindings = <
+						&sys_reset &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
+						&none &none &none &none &none &none &sys_reset
+						&bt BT_CLR_ALL &none &none &none &none &none
+						&none &none &none &none &none &none
+						&bootloader &none &none &out OUT_BLE &out OUT_USB &out OUT_TOG
+						&none &none &none &none &none &bootloader
+						&trans &none &trans
+						&none &none &trans
+					>;
                 };
         };
 };
