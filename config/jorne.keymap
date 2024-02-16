@@ -24,12 +24,12 @@
 		macros {
 			comma_space: comma_space {
 				compatible = "zmk,behavior-macro";
-				bindings = <&macro-tap &kp COMMA &kp SPACE>;
+				bindings = <&macro_tap &kp COMMA &kp SPACE>;
 			};
 
 			dot_space: dot_space {
 				compatible = "zmk,behavior-macro";
-				bindings = <&macro-tap &kp DOT &kp SPACE>;
+				bindings = <&macro_tap &kp DOT &kp SPACE>;
 			};
 		};
 		
