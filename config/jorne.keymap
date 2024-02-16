@@ -16,7 +16,7 @@
 #define CYA 5
 
 &lt {
-	flavor: "balanced";
+	flavor = "balanced";
 	tapping-term-ms = <200>;
 };
 
