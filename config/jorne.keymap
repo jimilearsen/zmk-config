@@ -34,7 +34,7 @@
                         &kp LSHIFT &kp Z &kp X &kp C &kp V &kp B
                         &kp N &kp M &kp COMMA &kp DOT &kp FSLH &kp RBKT
                         &lt RED MINUS &lt YLW UNDERSCORE &lt GRN SPACE
-                        &lt GRN ENT &lt YLW BSPC &lt RED LC(BSPC)
+                        &lt GRN ENTER &lt YLW BSPC &lt RED LC(BSPC)
                     >;
                 };
 
